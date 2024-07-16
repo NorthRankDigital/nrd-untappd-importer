@@ -47,6 +47,18 @@ define('NRDUI_PATH', plugin_dir_path( __FILE__ ));
 define('NRDUI_URL', plugin_dir_url( __FILE__ ));
 define('NRDUI_NAME', plugin_basename(__FILE__));
 
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+  'https://github.com/NorthRankDigital/nrd-untappd-importer',
+  __FILE__,
+  'nrd-untappd-importer'
+);
+
+//Set the branch that contains the stable release.
+// $myUpdateChecker->setBranch('master');
+
 /**
  * The code that runs during plugin activation.
  */
