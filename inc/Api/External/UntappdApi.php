@@ -57,7 +57,8 @@ class UntappdApi
           'description' => $item['description'],
           'style' => $item['style'],
           'abv' => $item['abv'],
-          'containers' => $containers
+          'containers' => $containers,
+          'untappd_item_id' => $item['id']
         ];
       }
     }

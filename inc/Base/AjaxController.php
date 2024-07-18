@@ -64,28 +64,7 @@ class AjaxController extends BaseController
       return wp_send_json_error(['message' =>$api_response['error']]);
     }
 
-    $this->createPost->deleteAllPosts($menu_id);
-
-    foreach($api_response as $data)
-    {
-      $post_type_object = get_post_type_object($data['menuID']);
-      $category = $post_type_object->labels->singular_name . '_category';
-      $post = [
-        'post_title' => $data['name'],
-        'post_content' => $data['description'],
-        'post_type' => $data['menuID'],
-        'custom_fields' => [
-            'style' => $data['style'],
-            'abv' => $data['abv'],
-            'containers' => $data['containers']
-          ],
-        'taxonomies' => [
-          $category => array($data['sectionName']),
-        ]
-      ];
-
-      $this->createPost->createPost($post);
-    }
+    $this->createPost->syncPosts($api_response, $menu_id);
 
     return wp_send_json_success(['message'=>'Menu synced', 'data'=>$api_response]);
   }

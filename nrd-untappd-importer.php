@@ -8,7 +8,7 @@
   Plugin Name: NRD Untappd Importer
   Plugin URI: https://northrankdigital.com
   Description: Import menus from Untappd to Wordpress
-  Version: 1.0.3
+  Version: 1.0.4
   Author: North Rank Digital
   Author URI: https://northrankdigital.com
   License: GPLv2 or later

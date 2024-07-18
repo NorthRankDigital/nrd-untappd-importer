@@ -114,6 +114,18 @@ class MenuController extends BaseController
             'place_holder' => 'Containers'
           )
         ];
+
+      $this->custom_fields[] =
+        [
+          'post_type' => $option['post_type'],
+          'id' => 'untappd_item_id',
+          'title' => 'Untappd Item ID',
+          'callback' => array($this->menuCallbacks, 'renderCustomFields'),
+          'args' => array(
+            'label_for' => 'untappd_item_id',
+            'place_holder' => 'Untappd Item ID'
+          )
+        ];
     }
 
     $this->customFields->setFields($this->custom_fields);
